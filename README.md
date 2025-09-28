@@ -58,7 +58,7 @@ AuditMind **saves time, improves consistency, and ensures tracebility** by linki
 
 ## example
 
-**query:** check IFRS 16 (leases) for company X
+**query:** check IFRS 16 (leases) for apple in 2022
 
 **output:**
 

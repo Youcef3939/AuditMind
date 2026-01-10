@@ -1,13 +1,11 @@
 from core.standards.vector_search import VectorSearch  
 
 class LLMPipeline:
-    """A lightweight pipeline to summarize reports and give insights based on standards."""
     def __init__(self):
         self.vector_search = VectorSearch()
         self.vector_search.load_embeddings()  
 
     def analyze_report(self, report_text: str):
-        """Analyze a report and return a summary and insights."""
         summary = report_text.split(".")[0] + "."
 
         top_matches = self.vector_search.query(top_k=5)
@@ -18,7 +16,6 @@ class LLMPipeline:
 
         return summary, insights
 
-# test
 if __name__ == "__main__":
     report = (
         "Financial statements shall present fairly the financial position, financial performance and cash flows of an entity. "

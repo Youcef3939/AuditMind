@@ -9,11 +9,7 @@ from core.ingestion import pdf_parser, excel_parser, docx_parser
 SUPPORTED_EXTENSIONS = ['.pdf', '.xls', '.xlsx', '.docx']
 
 def load_file(file_path):
-    """
-    detect file type and parse using the appropriate parser
-    returns:
-        dict: structured data depending on file type
-    """
+
     ext = os.path.splitext(file_path)[1].lower()
     
     if ext == '.pdf':
@@ -26,11 +22,7 @@ def load_file(file_path):
         raise ValueError(f"Unsupported file type: {ext}")
 
 def load_all_files(raw_dir='data/raw'):
-    """
-    load all supported files from raw_dir
-    returns:
-        dict: {file_name: parsed_data}
-    """
+
     all_data = {}
     for fname in os.listdir(raw_dir):
         full_path = os.path.join(raw_dir, fname)
@@ -41,9 +33,7 @@ def load_all_files(raw_dir='data/raw'):
     return all_data
 
 def print_summary(all_data):
-    """
-    print a neat summary of all loaded files
-    """
+
     print(f"\nLoaded {len(all_data)} files.\n")
     for fname, parsed in all_data.items():
         print(f"{fname}:")
@@ -57,7 +47,6 @@ def print_summary(all_data):
             print(f"  Paragraphs: {len(parsed['paragraphs'])}")
             print(f"  First paragraph: {parsed['paragraphs'][0]['text'][:200]}...\n")
 
-# test
 if __name__ == "__main__":
     data = load_all_files()
     print_summary(data)

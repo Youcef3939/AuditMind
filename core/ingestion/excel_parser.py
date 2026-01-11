@@ -1,10 +1,7 @@
 import pandas as pd
 
 def split_tables(df):
-    """
-    split a DataFrame into multiple tables whenever a fully blank row is found
-    returns a list of DataFrames
-    """
+
     tables = []
     current_table = []
     
@@ -63,7 +60,6 @@ def parse_excel(file_path):
     
     return output
 
-# test
 if __name__ == "__main__":
     parsed = parse_excel("data/raw/apple_fin.xlsx")
     for sheet in parsed['sheets']:
